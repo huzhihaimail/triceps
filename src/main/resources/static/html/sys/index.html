@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+
+    <input type="text" class="form-control" @keyup.enter="query" placeholder="支持id、pid、key、value 查询">
+    <a class="btn btn-default" @click="query"><i class="fa fa-search"></i>查询</a>
+
+    <a v-if="hasPermission('sys:config:save')" class="btn btn-primary" @click="save"><i class="fa fa-plus"></i>&nbsp;新增</a>
+    <a v-if="hasPermission('sys:config:update')" class="btn btn-primary" @click="update"><i
+            class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+    <a v-if="hasPermission('sys:config:delete')" class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+
+</div>
+
+
+hi,home page
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script src="../../vue/common/common-app.js"></script>
+<script src="../../vue/sys/index.js"></script>
+</html>

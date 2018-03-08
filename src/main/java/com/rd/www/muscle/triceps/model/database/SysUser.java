@@ -1,0 +1,181 @@
+/*
+ * 公司名称：北京掌众金融服务有限公司
+ * 版权信息：北京掌众金融服务有限公司 版权所有
+ * 文件名称：SysUserDO.java
+ * 创建时间：2018/3/6 17:50
+ * 创建人：胡志海
+ * 修改内容：
+ * 修改人：
+ * 修改单号 ：
+ */
+package com.rd.www.muscle.triceps.model.database;
+
+import java.util.List;
+
+/**
+ * <类功能简述>
+ *
+ * @author 胡志海
+ */
+public class SysUser extends BaseModel {
+
+    /**
+     * 用户名
+     */
+    private String userName;
+    /**
+     * 昵称
+     */
+    private String nickName;
+
+    /**
+     * 密码
+     */
+    private String password;
+
+    /**
+     * 修改密码
+     */
+    private String newPassword;
+
+    /**
+     * 密码盐
+     */
+    private String salt;
+
+    /**
+     * 验证码
+     */
+    private String userVerifyCode;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 手机号
+     */
+    private String mobile;
+
+    /**
+     * 状态  0：禁用   1：正常
+     */
+    private int status;
+
+    /**
+     * 角色列表
+     */
+    private List<String> roleList;
+
+    /**
+     * 记住我
+     */
+    private String isRememberMe;
+
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public String getUserVerifyCode() {
+        return userVerifyCode;
+    }
+
+    public void setUserVerifyCode(String userVerifyCode) {
+        this.userVerifyCode = userVerifyCode;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public List<String> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<String> roleList) {
+        this.roleList = roleList;
+    }
+
+    public String getIsRememberMe() {
+        return isRememberMe;
+    }
+
+    public void setIsRememberMe(String isRememberMe) {
+        this.isRememberMe = isRememberMe;
+    }
+
+    @Override
+    public String toString() {
+        return "SysUser{" +
+                ", userName='" + userName + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", password='" + password + '\'' +
+                ", newPassword='" + newPassword + '\'' +
+                ", salt='" + salt + '\'' +
+                ", userVerifyCode='" + userVerifyCode + '\'' +
+                ", email='" + email + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", status=" + status +
+                ", roleList=" + roleList +
+                ", isRememberMe='" + isRememberMe + '\'' +
+                '}';
+    }
+}
