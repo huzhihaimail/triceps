@@ -23,12 +23,12 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/sys/quartzJob")
-public class SysQuartzJobCtl {
+public class QuartzJobCtl {
 
     /**
      * 日志对象
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(SysQuartzJobCtl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(QuartzJobCtl.class);
 
     @Autowired
     private SysQuartzJobService quartzJobService;

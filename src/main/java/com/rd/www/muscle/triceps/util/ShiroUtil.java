@@ -1,0 +1,20 @@
+
+package com.rd.www.muscle.triceps.util;
+
+import com.rd.www.muscle.triceps.model.database.SysUser;
+import org.apache.shiro.SecurityUtils;
+
+/**
+ * <类功能简述> shiro 工具类
+ *
+ * @author 胡志海
+ */
+public class ShiroUtil {
+
+    public static String getLoginUserName() {
+        SysUser user = (SysUser) SecurityUtils.getSubject().getPrincipal();
+        return user.getUserName();
+    }
+
+
+}
