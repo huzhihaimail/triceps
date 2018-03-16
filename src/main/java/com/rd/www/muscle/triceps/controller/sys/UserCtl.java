@@ -57,7 +57,7 @@ public class UserCtl {
      * @param id 用户ID
      * @return 用户实体
      */
-    @RequestMapping("/list/{id}")
+    @RequestMapping("/{id}")
     public Result queryById(@PathVariable String id) {
 
         SysUser model = sysUserService.queryById(id);

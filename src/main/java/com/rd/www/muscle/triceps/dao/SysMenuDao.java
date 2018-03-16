@@ -3,6 +3,9 @@ package com.rd.www.muscle.triceps.dao;
 
 import com.rd.www.muscle.triceps.model.database.SysMenu;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * <类功能简述> 定时任务数据访问层接口
  *
@@ -10,5 +13,12 @@ import com.rd.www.muscle.triceps.model.database.SysMenu;
  */
 public interface SysMenuDao extends BaseDao<SysMenu> {
 
+    /**
+     * 根据用户授权查询系统菜单
+     *
+     * @param userName 查询条件（用户名）
+     * @return 授权菜单列表
+     */
+    List<SysMenu> loadMenus(String userName);
 
 }

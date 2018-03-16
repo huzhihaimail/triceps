@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/triceps.iml" filepath="$PROJECT_DIR$/triceps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/triceps_main.iml" filepath="$PROJECT_DIR$/.idea/modules/triceps_main.iml" group="triceps" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/triceps_test.iml" filepath="$PROJECT_DIR$/.idea/modules/triceps_test.iml" group="triceps" />
+    </modules>
+  </component>
+</project>

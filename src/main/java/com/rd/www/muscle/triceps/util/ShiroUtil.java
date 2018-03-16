@@ -11,6 +11,11 @@ import org.apache.shiro.SecurityUtils;
  */
 public class ShiroUtil {
 
+    /**
+     * 获取用户名
+     *
+     * @return 登陆用户名
+     */
     public static String getLoginUserName() {
         SysUser user = (SysUser) SecurityUtils.getSubject().getPrincipal();
         return user.getUserName();

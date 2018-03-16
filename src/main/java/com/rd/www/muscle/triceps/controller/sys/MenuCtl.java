@@ -11,9 +11,13 @@ import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,13 +34,20 @@ public class MenuCtl {
     @Autowired
     private SysMenuService sysMenuService;
 
-    @RequiresRoles("sys")
-    @RequiresPermissions("sys:menu:list")
+    /**
+     * 分页查询菜单列表
+     *
+     * @param params   查询参数
+     * @param pageNum  当前页码
+     * @param pageSize 每页显示大小
+     * @return 列表
+     */
     @RequestMapping("/list")
-    public Result index(Map<String, Object> params, Integer pageNum, Integer pageSize) {
+    public Result index(@RequestParam Map<String, Object> params, Integer pageNum, Integer pageSize) {
         Query queryParam = new Query(params);
         PageInfo<SysMenu> result = sysMenuService.queryList(queryParam, pageNum, pageSize);
 
         return Result.success().put("page", result);
     }
+
 }

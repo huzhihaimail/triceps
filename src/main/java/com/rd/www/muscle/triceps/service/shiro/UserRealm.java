@@ -1,14 +1,4 @@
-/*
- * 公司名称：江苏华招网信息技术有限公司
- * 版权信息：江苏华招网信息技术有限公司版权所有
- * 描述： FreeMarker页面中使用Shiro标签
- * 文件名称：ShiroTagFreeMarkerConfigurer.java
- * 修改时间：2016-7-30
- * 修改人：胡志海
- * 修改内容：
- * 跟踪单号：
- * 修改单号 ：
- */
+
 
 package com.rd.www.muscle.triceps.service.shiro;
 
