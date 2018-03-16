@@ -2,32 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d44dd8d5-e25f-454b-8be6-ca58c36a60c8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/util/ErrorCodeUtil.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/IndexCtl.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/IndexCtl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/rd/www/muscle/triceps/controller/sys/MenuCtl.class" afterPath="$PROJECT_DIR$/out/production/classes/com/rd/www/muscle/triceps/controller/sys/MenuCtl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/MenuCtl.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/MenuCtl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/UserCtl.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/UserCtl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/dao/SysMenuDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/dao/SysMenuDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/dao/SysUserDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/dao/SysUserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/model/database/SysMenu.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/model/database/SysMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/model/database/SysRole.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/model/database/SysRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/model/database/SysUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/model/database/SysUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/shiro/UserRealm.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/shiro/UserRealm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysMenuService.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysMenuService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysMenuServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysMenuServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysQuartzJobService.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysQuartzJobService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysQuartzJobServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysQuartzJobServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysRoleService.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysRoleService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysRoleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysRoleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysUserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysUserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysUserServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/util/ShiroUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/util/ShiroUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysMenu.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysMenu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysUser.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysUser.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/html/error/error.html" afterPath="$PROJECT_DIR$/src/main/resources/static/html/error/error.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/html/sys/index.html" afterPath="$PROJECT_DIR$/src/main/resources/static/html/sys/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/vue/common/common-app.js" afterPath="$PROJECT_DIR$/src/main/resources/static/vue/common/common-app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/vue/common/common-jqgrid.js" afterPath="$PROJECT_DIR$/src/main/resources/static/vue/common/common-jqgrid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/vue/sys/index.js" afterPath="$PROJECT_DIR$/src/main/resources/static/vue/sys/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/vue/sys/user.js" afterPath="$PROJECT_DIR$/src/main/resources/static/vue/sys/user.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -54,36 +35,39 @@
       <file leaf-file-name="UserCtl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/UserCtl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+            <state relative-caret-position="-1455">
+              <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InvocableHandlerMethod.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.4.RELEASE/2fbf13b190d2b64c44f4235ff24038a1215cbf2d/spring-web-5.0.4.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <file leaf-file-name="ShiroUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/util/ShiroUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="221" column="56" lean-forward="true" selection-start-line="221" selection-start-column="56" selection-end-line="221" selection-end-column="56" />
+            <state relative-caret-position="217">
+              <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SysUser.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysUser.xml">
+      <file leaf-file-name="error.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/html/error/error.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="56" lean-forward="false" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-              <folding>
-                <marker date="1521116160623" expanded="true" signature="2063:2336" ph="SELECT t.id,... sys_user" />
-                <marker date="1521116160623" expanded="true" signature="2063:2655" ph="SELECT t.id,... sys_user" />
-                <marker date="1521116160623" expanded="true" signature="2757:3118" ph="SELECT t.id,... sys_user" />
-                <marker date="1521116160623" expanded="true" signature="3236:3418" ph="select from where" />
-                <marker date="1521116160623" expanded="true" signature="3558:3705" ph="insert into " />
-                <marker date="1521116160623" expanded="true" signature="4154:4318" ph="update set w... " />
-              </folding>
+            <state relative-caret-position="173">
+              <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common-jqgrid.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/vue/common/common-jqgrid.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,21 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
               <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SysUserDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/dao/SysUserDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -138,22 +112,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commmon-layer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/vue/common/commmon-layer.js">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/vue/sys/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+            <state relative-caret-position="880">
+              <caret line="109" column="7" lean-forward="false" selection-start-line="109" selection-start-column="7" selection-end-line="109" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/vue/sys/user.js">
+      <file leaf-file-name="MenuCtl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/MenuCtl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="108" column="39" lean-forward="false" selection-start-line="108" selection-start-column="39" selection-end-line="108" selection-end-column="39" />
-              <folding />
+            <state relative-caret-position="943">
+              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -574,24 +550,24 @@
         <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysQuartzJobServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/shiro/UserRealm.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/model/database/SysMenu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/MenuCtl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysMenuService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/dao/SysMenuDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysMenuServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/IndexCtl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/util/ShiroUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/SysMenu.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/html/error/error.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/vue/sys/index.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/vue/common/common-app.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/vue/common/common-jqgrid.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/html/sys/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/vue/common/commmon-layer.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/UserCtl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/vue/sys/user.js" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/SysUser.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/service/sys/SysUserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/dao/SysUserDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/vue/sys/user.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/MenuCtl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/UserCtl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/util/ShiroUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/html/error/error.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/vue/common/common-jqgrid.js" />
       </list>
     </option>
   </component>
@@ -906,6 +882,16 @@
               <item name="util" type="462c0819:PsiDirectoryNode" />
               <item name="errorcode" type="462c0819:PsiDirectoryNode" />
               <item name="IndexErrorCode" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="triceps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="triceps" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="triceps" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="ShiroUtil" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="triceps" type="b2602c69:ProjectViewProjectNode" />
@@ -1260,15 +1246,16 @@
       <updated>1520515535413</updated>
       <workItem from="1520515537013" duration="51923000" />
       <workItem from="1520946584387" duration="13508000" />
-      <workItem from="1520991506240" duration="49273000" />
+      <workItem from="1520991506240" duration="49725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114704000" />
+    <option name="totallyTimeSpent" value="115156000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1102" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1290,7 +1277,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18844493" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18844493" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1505,14 +1492,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/util/ShiroUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysQuartzJob.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1569,14 +1548,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/html/error/error.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/vue/sys/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -1597,14 +1568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/MenuCtl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="47" column="19" lean-forward="true" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1638,14 +1601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/vue/common/common-jqgrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/html/sys/user.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -1675,26 +1630,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/vue/sys/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="108" column="39" lean-forward="false" selection-start-line="108" selection-start-column="39" selection-end-line="108" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.4.RELEASE/2fbf13b190d2b64c44f4235ff24038a1215cbf2d/spring-web-5.0.4.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="221" column="56" lean-forward="true" selection-start-line="221" selection-start-column="56" selection-end-line="221" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/UserCtl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1750,6 +1689,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/MenuCtl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/controller/sys/UserCtl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1455">
+          <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rd/www/muscle/triceps/util/ShiroUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/html/error/error.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/vue/common/common-jqgrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/vue/sys/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="109" column="7" lean-forward="false" selection-start-line="109" selection-start-column="7" selection-end-line="109" selection-end-column="7" />
           <folding />
         </state>
       </provider>

@@ -6,18 +6,13 @@ import com.rd.www.muscle.triceps.model.common.Query;
 import com.rd.www.muscle.triceps.model.common.Result;
 import com.rd.www.muscle.triceps.model.database.SysMenu;
 import com.rd.www.muscle.triceps.service.sys.SysMenuService;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -49,5 +44,4 @@ public class MenuCtl {
 
         return Result.success().put("page", result);
     }
-
 }
