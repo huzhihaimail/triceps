@@ -39,16 +39,16 @@ public class UserCtl {
      * 查询用户列表
      *
      * @param params   参数列表
-     * @param pageNum  当前页码
+     * @param pageNumber  当前页码
      * @param pageSize 每页大小
      * @return 用户列表
      */
     @RequestMapping("/list")
-    public Result index(@RequestParam Map<String, Object> params, Integer pageNum, Integer pageSize) {
+    public Result index(@RequestParam Map<String, Object> params, Integer pageNumber, Integer pageSize) {
         Query queryParam = new Query(params);
-        PageInfo<SysUser> result = sysUserService.queryList(queryParam, pageNum, pageSize);
+        PageInfo<SysUser> result = sysUserService.queryList(queryParam, pageNumber, pageSize);
 
-        return Result.success().put("page", result);
+        return Result.success(result.getTotal(), result.getList());
     }
 
     /**

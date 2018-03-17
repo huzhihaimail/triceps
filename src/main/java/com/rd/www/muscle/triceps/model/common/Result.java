@@ -1,6 +1,7 @@
 package com.rd.www.muscle.triceps.model.common;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -23,6 +24,7 @@ public class Result extends HashMap<String, Object> {
 
     /**
      * 处理根异常
+     *
      * @param message 消息
      * @return 结果对象
      */
@@ -46,6 +48,13 @@ public class Result extends HashMap<String, Object> {
     public static Result success(Map<String, Object> map) {
         Result r = new Result();
         r.putAll(map);
+        return r;
+    }
+
+    public static Result success(Long total, List list) {
+        Result r = new Result();
+        r.put("total", total);
+        r.put("rows", list);
         return r;
     }
 

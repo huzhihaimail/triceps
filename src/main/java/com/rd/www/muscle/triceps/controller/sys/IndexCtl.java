@@ -74,6 +74,7 @@ public class IndexCtl {
         return Result.success();
     }
 
+
     /**
      * 查询用户授权菜单
      *
@@ -83,6 +84,7 @@ public class IndexCtl {
     public Result loadMenus() {
 
         try {
+
             String loginUserName = ShiroUtil.getLoginUserName();
 
             if (StringUtils.isEmpty(loginUserName)) {

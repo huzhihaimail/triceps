@@ -114,7 +114,7 @@
 
                 <li class="treeview" v-for="menu in menus">
                     <a :href="menu.url" v-if="menu.parentId==0">
-                        <i class="fa fa-circle-o"></i> <span>{{menu.name}}</span>
+                        <i :class="menu.icon"></i> <span>{{menu.name}}</span>
                         <span class="pull-right-container">
                             <span class="label label-primary pull-right">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -124,7 +124,7 @@
                     <ul class="treeview-menu">
                         <li v-for="sub in menus" v-if="sub.parentId==menu.id">
                             <a :href="sub.url">
-                                <i class="fa fa-circle-o text-red"></i>{{sub.name}}
+                                <i :class="sub.icon"></i>{{sub.name}}
                             </a>
                         </li>
                     </ul>

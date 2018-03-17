@@ -36,22 +36,6 @@ public interface BaseDao<T> {
     Integer update(T t);
 
     /**
-     * 函数功能描述：根据ID进行物理删除
-     *
-     * @param id 唯一标识符
-     * @return 影响行数
-     */
-    Integer physicsDeleteById(String id);
-
-    /**
-     * 函数功能描述：根据ID进行逻辑删除
-     *
-     * @param id 唯一标识符
-     * @return 影响行数
-     */
-    Integer logicDeleteById(String id);
-
-    /**
      * 根据ID数组批量删除操作
      *
      * @param idsLst 列表

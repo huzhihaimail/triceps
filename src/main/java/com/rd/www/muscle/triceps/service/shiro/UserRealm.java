@@ -37,10 +37,6 @@ public class UserRealm extends AuthorizingRealm {
 
     @Autowired
     private SysUserService sysUserService;
-    @Autowired
-    private SysRoleService sysRoleService;
-    @Autowired
-    private SysMenuService sysMenuService;
 
     /**
      * 授权(验证权限时调用)

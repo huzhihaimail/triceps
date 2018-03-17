@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 【命名规范说明 】 1. 文件名采用 "表名.xml" 的方式； 2. 每个SQL上需要编写该条SQL的注释； 3. SQL关键字采用全大写的方式； 4. 如果允许，请尽量保持SQL的ID和对应的业务方法名保持一致； 5. 查询SQL如果需要使用自动分页，则其SQL的ID必须使用ByPage结尾； 
-	6. 可以使用MyBatis流程控制语句来实现SQL的重用； 6. 注意SQL排版； -->
-
+<!-- 配置dao接口路径-->
 <mapper namespace="com.rd.www.muscle.triceps.dao.SysUserDao">
 
-    <!-- 可根据自己的需求，是否要使用 -->
+    <!-- type配置model层实体类名-->
     <resultMap id="SysUserMap" type="SysUser">
+
+        <!-- 配置实体和数据库列的对应关系，property：实体属性名；column：数据库表列名；-->
         <result property="id" column="id"></result>
         <result property="userName" column="user_name"></result>
         <result property="nickName" column="nick_name"></result>
@@ -21,124 +21,102 @@
         <result property="updateDate" column="update_date"></result>
     </resultMap>
 
-    <sql id="table_name">
+    <!-- 配置表名 -->
+    <sql id="tableName">
         sys_user
     </sql>
 
-    <sql id="table_nick_name">
-        t
+    <!-- for insert columns -->
+    <sql id="columns">
+        id, user_name, nick_name, mobile, password, salt, status, email, create_date, update_date, delete_flag
     </sql>
 
-    <!-- 公共SQL -->
-    <sql id="all_columns">
-        t.id,
-        t.user_name,
-        t.nick_name,
-        t.mobile,
-        t.`password`,
-        t.salt,
-        t.`status`,
-        t.email,
-        t.create_date,
-        t.update_date,
-        t.delete_flag
-    </sql>
-
-    <sql id="insert_value">
+    <!-- for insert value -->
+    <sql id="values">
         #{id}, #{userName}, #{nickName}, #{mobile}, #{password}, #{salt}, #{status}, #{email}, now(), now(), 0
     </sql>
 
-    <!-- update set 语句 -->
-    <sql id="update_set">
+    <!-- for update set -->
+    <sql id="updates">
         user_name=#{userName}, nick_name=#{nickName}, mobile=#{mobile}, `password`=#{password}, salt=#{salt}, status=#{status}, email=#{email}, delete_flag=#{deleteFlag}, modify_date=NOW()
     </sql>
 
+    <!-- 根据名称查询 -->
+    <select id="queryByName" resultMap="SysUserMap" parameterType="String">
+        SELECT
+        <include refid="columns"/>
+        FROM
+        sys_user t
+        WHERE 1=1
+        AND t.user_name=#{userName}
+    </select>
+
+    <!-- 根据ID查询-->
+    <select id="queryById" resultMap="SysUserMap" parameterType="String">
+        SELECT
+        <include refid="columns"/>
+        FROM
+        <include refid="tableName"/>
+        WHERE 1 = 1
+        AND id=#{id}
+    </select>
+
+    <!-- 批量删除-->
+    <delete id="deleteByIds" parameterType="java.util.List">
+        DELETE FROM
+        <include refid="tableName"/>
+        WHERE 1=1
+        AND id IN
+        <foreach item="id" index="index" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!-- 新建  -->
+    <insert id="insert" parameterType="SysUser" keyProperty="id">
+        INSERT INTO sys_user
+        (<include refid="columns"/>)
+        VALUES
+        (<include refid="values"/>)
+    </insert>
+
+    <!-- 修改 -->
+    <update id="update" parameterType="SysUser">
+        UPDATE
+        <include refid="tableName"/>
+        SET
+        <include refid="updates"/>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 根据条件查询 -->
     <select id="queryList" resultMap="SysUserMap" parameterType="map">
         SELECT
         t.id,
         t.user_name,
         t.nick_name,
         t.mobile,
-        t.`password`,
+        t.password,
         t.salt,
-        t.`status`,
+        t.status,
         t.email,
         t.create_date,
         t.update_date,
         t.delete_flag
         FROM
         sys_user t
-        where 1=1
+        WHERE 1=1
         <if test="keyword!=null and keyword!=''">
-            and t.user_name LIKE CONCAT('%',#{keyword},'%')
-            or t.nick_name LIKE CONCAT('%',#{keyword},'%')
-            or t.mobile LIKE CONCAT('%',#{keyword},'%')
-            or t.email LIKE CONCAT('%',#{keyword},'%')
+            AND t.user_name LIKE CONCAT('%',#{keyword},'%')
+            OR t.nick_name LIKE CONCAT('%',#{keyword},'%')
+            OR t.mobile LIKE CONCAT('%',#{keyword},'%')
+            OR t.email LIKE CONCAT('%',#{keyword},'%')
         </if>
-        order by id desc
-
-
+        <if test="sortName!=null and sorName!='' and sortOrder !=null and sortOrder!=''">
+            ORDER BY #{sortName} #{sortOrder}
+        </if>
     </select>
 
-    <select id="queryByName" resultMap="SysUserMap" parameterType="String">
-        SELECT
-            t.id,
-            t.user_name,
-            t.nick_name,
-            t.mobile,
-            t.`password`,
-            t.salt,
-            t.`status`,
-            t.email,
-            t.create_date,
-            t.update_date,
-            t.delete_flag
-        FROM
-            sys_user t
-          where 1=1
-          and t.user_name=#{userName}
-    </select>
-
-    <!-- 根据ID查询 -->
-    <select id="queryById" resultMap="SysUserMap" parameterType="String">
-        select
-        <include refid="all_columns"/>
-        from
-        <include refid="table_name"/>
-        <include refid="table_nick_name"/>
-        where 1 = 1
-        and t.id=#{id}
-    </select>
-
-    <!-- 保存 -->
-    <insert id="insert" parameterType="com.weshare.eel.bussiness.model.SysConfig" keyProperty="id">
-        insert into
-        <include refid="table_name"/>
-        (<include refid="all_columns"/>)
-        values
-        (<include refid="insert_value"/>)
-    </insert>
-
-    <!-- 逻辑删除根据id -->
-    <delete id="deleteByIds" parameterType="java.util.List">
-        delete from
-        <include refid="table_name"/>
-        where 1=1
-        and id in
-        <foreach item="id" index="index" collection="list" open="(" separator="," close=")">
-            #{id}
-        </foreach>
-    </delete>
-
-    <!-- 根据ID修改 -->
-    <update id="update" parameterType="com.weshare.eel.bussiness.model.SysConfig">
-        update
-        <include refid="table_name"/>
-        <include refid="table_nick_name"/>
-        set
-        <include refid="update_set"/>
-        where t.id = #{id}
-    </update>
 
 </mapper>
 

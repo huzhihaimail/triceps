@@ -56,30 +56,6 @@ public class BaseServiceImpl<DAO extends BaseDao<T>, T> implements BaseService<T
     }
 
     /**
-     * 函数功能描述：根据ID进行物理删除
-     *
-     * @param id 唯一标识符
-     * @return 影响行数
-     */
-    @Override
-    @Transactional(rollbackFor = {RuntimeException.class, Exception.class})
-    public Integer physicsDeleteById(String id) {
-        return this.dao.physicsDeleteById(id);
-    }
-
-    /**
-     * 函数功能描述：根据ID进行逻辑删除
-     *
-     * @param id 唯一标识符
-     * @return 影响行数
-     */
-    @Override
-    @Transactional(rollbackFor = {RuntimeException.class, Exception.class})
-    public Integer logicDeleteById(String id) {
-        return this.dao.logicDeleteById(id);
-    }
-
-    /**
      * 函数功能描述：根据ID数组批量删除操作
      *
      * @param idsLst id集合
@@ -90,7 +66,6 @@ public class BaseServiceImpl<DAO extends BaseDao<T>, T> implements BaseService<T
     public Integer deleteByIds(List<String> idsLst) {
         return this.dao.deleteByIds(idsLst);
     }
-
 
     /**
      * 函数功能描述：分页查询所有表记录
