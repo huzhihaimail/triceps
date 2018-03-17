@@ -1,46 +1,48 @@
+var $table;
+
+/**
+ * 页面初始化执行
+ */
 $(function () {
-
-    var colModel = [
-        {label: 'ID', name: 'id', width: 45, key: true, hidden: true}
-        , {label: '用户名', name: 'userName', width: 80}
-        , {label: '用户昵称', name: 'nickName', width: 80}
-        , {label: '邮箱', name: 'email', width: 60}
-        , {label: '手机号码', name: 'mobile', width: 100}
-        , {label: '状态', name: 'status', width: 100}
-
-    ];
-
-    // 加载表格
-    loadGrid(JQGRID_ID, APP_NAME + "/sys/user/list", colModel, JQGRID_PAGER);
+    // 创建BootStrapTable
+    createBootStrapTable();
 });
+
+
+/**
+ * 创建表格
+ */
+function createBootStrapTable(queryOpt) {
+    // 销毁表格数据
+    destoryBootStrapTable();
+    // 初始化表格插件
+    initBootstrapTable(queryOpt);
+}
 
 
 // 定义vue实例
 var vm = new Vue({
     el: "#" + VUE_EL,
     data: {
-        flag: true, // 是否显示
-        showPwd:true,
-        title: null, // 标题
-        queryParam: { // 查询参数
+        show: true// 切换页面中的查询和新建（编辑）页面
+        , showPwd: true // 显示修改密码框
+        , title: null // 标题
+        , vueQueryParam: { // 查询参数
             keyword: null,
-        },
-
-        model: {}, //实体对象
+        }
+        , model: {} //实体对象(用于新建、修改页面)
     },
     // 定义方法
     methods: {
-
         // 点击“查询”按钮事件
         query: function () {
-            vm.reload("query");
+            vm.reload();
         },
 
         // 点击“新增”按钮
         save: function (event) {
-
             // 1. 隐藏表格，显示添加页面
-            vm.flag = false;
+            vm.show = false;
             // 2. 设置标题
             vm.title = "新增";
             // 3. 清空表单数据
@@ -58,7 +60,8 @@ var vm = new Vue({
 
             // 执行修改操作
             vm.doUpdate();
-        },
+        }
+        ,
 
         // 执行保存操作
         doSave: function () {
@@ -72,7 +75,7 @@ var vm = new Vue({
                 success: function (r) {
                     if (r.code === 0) {
                         alert('操作成功', function (index) {
-                            vm.reload("doSave");
+                            vm.reload();
                         });
                     } else if (r.code) {
                         alert(r.msg);
@@ -81,7 +84,8 @@ var vm = new Vue({
                     }
                 }
             });
-        },
+        }
+        ,
 
         // 显示修改页面
         update: function () {
@@ -89,29 +93,19 @@ var vm = new Vue({
             // 隐藏密码
             vm.showPwd = false;
 
-            // 获取选择记录ID
-            var ids = jqGrid_getMultiRowIds();
-
-            // 校验未选择任何一行
-            if (ids == null || ids.length <= 0) {
+            // 校验只能选择一行
+            if (getMultiRowIds().length != 1) {
                 alert("请选择一条记录");
                 return;
             }
 
-            // 校验只能选择一行
-            if (ids.length > 1) {
-                alert("只能选择一条记录");
-                return;
-            }
-
-            var id = ids[0];
-
-            $.get(APP_NAME + "/sys/user/" + id, function (r) {
-                vm.flag = false;
+            $.get(APP_NAME + "/sys/user/" + ids[0], function (r) {
+                vm.show = false;
                 vm.title = "修改";
                 vm.model = r.model;
             });
-        },
+        }
+        ,
 
         // 执行修改操作
         doUpdate: function () {
@@ -125,23 +119,22 @@ var vm = new Vue({
                 success: function (r) {
                     if (r.code === 0) {
                         alert('操作成功', function (index) {
-                            vm.reload("doUpdate");
+                            vm.reload();
                         });
                     } else if (r.code) {
-                        alert(ERROR_CODE_MSG[r.code]);
+                        alert(r.msg);
                     } else {
                         alert(r.msg);
                     }
                 }
             });
-
         },
 
         // 点击“删除”按钮
         del: function (event) {
 
             // 获取选择记录ID
-            var ids = jqGrid_getMultiRowIds();
+            var ids = getMultiRowIds();
 
             // 校验未选择任何一行
             if (ids == null || ids.length <= 0) {
@@ -158,10 +151,10 @@ var vm = new Vue({
                     success: function (r) {
                         if (r.code == 0) {
                             alert('操作成功', function (index) {
-                                vm.reload("del");
+                                vm.reload();
                             });
                         } else if (r.code) {
-                            alert(ERROR_CODE_MSG[r.code]);
+                            alert(r.msg);
                         } else {
                             alert(r.msg);
                         }
@@ -170,70 +163,141 @@ var vm = new Vue({
             });
         },
 
-        // 重新加载
-        reload: function (query_type) {
+        // 重新加载(ok)
+        reload: function () {
 
             // 展示查询列表
-            vm.flag = true;
-
-            // 获得当前的页数
-            var page = query_type == "query" ? 1 : $("#jqGrid").jqGrid('getGridParam', 'page');
+            vm.show = true;
 
             // 查询条件
-            var queryParams = {
-                'keyword': vm.queryParam.keyword == null ? "" : vm.queryParam.keyword.trim(),
+            var queryOpt = {
+                'keyword': vm.vueQueryParam.keyword == null ? "" : vm.vueQueryParam.keyword.trim(),
             };
 
-            // .trigger() 说明：根据当前设置，重新载入Grid表格，即意味着向服务端重新发送一个新的请求。此方法只能用于已经构建好的Grid
-            // setGridParam,说明：重新设置表格参数
-            $("#jqGrid").jqGrid('setGridParam', {
-                postData: queryParams,
-                page: page
-            }).trigger("reloadGrid");
+            // 刷新表格数据
+            createBootStrapTable(queryOpt);
         },
     }
 });
 
+/**
+ * 加载列
+ */
+function initColumns() {
 
-// 加载grid
-function loadGrid(gridId, url, colModel, pager) {
-    $("#" + gridId).jqGrid({
-        url: url,
-        mtype: "POST",
-        datatype: "json",
-        colModel: colModel,
-        viewrecords: true,
-        height: 385,
-        rowNum: 10,
-        rowList: [10, 30, 50],
-        rownumbers: true,
-        rownumWidth: 25,
-        autowidth: true,
-        multiselect: true,
-        pager: pager, // 定义分页栏
-
-        // jsonReader来跟服务器端返回的数据做对应
-        jsonReader: {
-            root: "page.list",
-            page: "page.pageNum",
-            total: "page.pages",
-            records: "page.total"
-        },
-
-        // 发送到服务端的参数
-        prmNames: {
-            page: "pageNum", // 当前页数
-            rows: "pageSize", // 每页大小
-            order: "order"
-        },
-
-        // 当选择行时触发此事件(rowid 表示id，status表是选择状态)
-        onSelectRow: function (rowid, status) {
-        },
-        // 当表格所有数据都加载完成而且其他的处理也都完成时触发此事件，排序，翻页同样也会触发此事件
-        gridComplete: function () {
-            //隐藏grid底部滚动条
-            $("#jqGrid").closest(".ui-jqgrid-bdiv").css({"overflow-x": "hidden"});
+    var columns = [{checkbox: true, width: "2%"},
+        {
+            title: "序号",
+            field: "id",
+            width: "2%",
+            align: "center",
+            formatter: function (value, row, index) { // 设置列序号值，index从0开始
+                return index + 1;
+            }
         }
+        , {
+            field: "userName",
+            title: "用户名称",
+            width: "20%",
+            sortable: true,
+            sortName: "user_name" // sortName的值，需配置和数据库保持一致
+        }
+        , {
+            field: "nickName",
+            title: "昵称",
+            width: "20%",
+            sortable: true,
+            sortName: "nickName"
+        }
+        , {
+            field: "mobile",
+            title: "手机号",
+            width: "20%",
+            sortable: true,
+            sortName: "mobile"
+        }
+        , {
+            field: "email",
+            title: "邮箱",
+            width: "40%",
+            sortable: true,
+            sortName: "email"
+        }
+        /*, {
+            field: "operate",
+            title: "操作",
+            width: "15%",
+            formatter: function () {
+                return '<a class="btn btn-success btn-sm" @click="save"><i class="fa fa-floppy-o"></i></a>\n' +
+                    '<a class="btn btn-warning btn-sm" @click="update"><i class="fa fa-pencil-square-o"></i></a>\n' +
+                    '<a class="btn btn-danger btn-sm" @click="del"><i class="fa fa-trash"></i></a>';
+            }
+        }*/
+    ];
+
+    return columns;
+}
+
+
+/**
+ * 销毁表格数据
+ */
+function destoryBootStrapTable() {
+    $('#' + TABLE_ID).bootstrapTable('destroy');
+}
+
+
+/**
+ * 加载表格
+ * @param defineQueryParams 用户自定义查询参数（传递到后台）
+ */
+function initBootstrapTable(queryOpt) {
+    $table = $('#' + TABLE_ID).bootstrapTable({
+        columns: initColumns(), // 设置查询结果展示列
+        url: APP_NAME + "/sys/user/list?rnd=" + Math.random(),
+        //data:data,
+        height: $(window).height() - 50 - 30,
+        toolbar: '#toolbar', // 显示工具按钮
+        showRefresh: true, // 显示刷新按钮
+        showPaginationSwitch: true, // 显示和隐藏状态栏按钮
+        striped: true, // 表格数据隔行换色
+        pagination: true, // 显示分页按钮
+        paginationHAlign: "right",
+        pageNumber: PAGE_NUMBER,
+        pageSize: TABLE_PAGE_SIZE,
+        pageList: TABLE_PAGE_SIZE_LIST,
+        sidePagination: "server", // 后台分页
+        paginationLoop: false, // 分页不循环
+        clickToSelect: true, // 点击选中一行
+        checkboxHeader: true, // 显示和隐藏多选checkbox
+        sortable: true, //隐藏和显示所有排序按钮
+        sortOrder: "asc", // 排序类型
+        showColumns: true,
+        //设置为undefined可以获取pageNumber，pageSize，searchText，sortName，sortOrder
+        //设置为limit可以获取limit, offset, search, sort, order
+        queryParamsType: "undefined",
+        queryParams: function queryParams(params) {   //设置查询参数
+
+            // 设置表格默认参数
+            var bstParam = {
+                pageNumber: params.pageNumber
+                , pageSize: params.pageSize
+                , sortName: params.sortName
+                , sortOrder: params.sortOrder
+                , searchText: params.searchText
+            }
+
+            if (!queryOpt) {
+                return bstParam;
+            }
+
+            // 用户自定义查询参数
+            for (var key in queryOpt) {
+                bstParam[key] = queryOpt[key];
+            }
+
+            return bstParam;
+        },
     });
 }
+

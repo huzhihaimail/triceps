@@ -11,7 +11,7 @@
 <div id="app" class="container-fluid" v-cloak>
 
     <!-- 查询列表展示区域 -->
-    <div v-show="flag">
+    <div v-show="show">
         <div class="row-fluid">
             <div class="col-md-10 form-inline">
                 <div class="input-group">
@@ -45,7 +45,7 @@
     <!-- /查询列表展示区域 -->
 
     <!-- 新建、修改展示区域 -->
-    <div v-show="!flag" class="panel panel-primary" v-cloak>
+    <div v-show="!show" class="panel panel-primary" v-cloak>
 
         <div class="panel-heading">
             <i class="fa fa-pencil-square-o"></i> &nbsp; {{title}}
@@ -139,10 +139,10 @@
 <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
 <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
 
-<script src="../../vue/common/common-app.js"></script>
-<script src="../../vue/common/commmon-layer.js"></script>
+<script src="../../vue/common/common-application.js"></script>
+<script src="../../vue/common/common-layer.js"></script>
 <script src="../../vue/common/common-bootstrap-table.js"></script>
 
-<script src="../../vue/sys/user-bs-table.js"></script>
+<script src="../../vue/sys/user.js"></script>
 
 </html>

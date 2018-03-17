@@ -38,9 +38,9 @@ public class UserCtl {
     /**
      * 查询用户列表
      *
-     * @param params   参数列表
-     * @param pageNumber  当前页码
-     * @param pageSize 每页大小
+     * @param params     参数列表
+     * @param pageNumber 当前页码
+     * @param pageSize   每页大小
      * @return 用户列表
      */
     @RequestMapping("/list")
@@ -109,7 +109,7 @@ public class UserCtl {
 
             // 执行修改
             sysUserService.update(sysUser);
-        } catch (ApplicationException e) {
+        } catch (RuntimeException e) {
             return Result.error(UserErrorCode.SYS_USER_UPDATE_APP_ERROR_CODE, UserErrorCode.SYS_USER_UPDATE_APP_ERROR_MESSAGE);
         } catch (Exception e) {
             return Result.error(UserErrorCode.SYS_USER_UPDATE_ERROR_CODE, UserErrorCode.SYS_USER_UPDATE_ERROR_MESSAGE);

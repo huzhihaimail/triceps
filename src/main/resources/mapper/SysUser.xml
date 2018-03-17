@@ -38,7 +38,7 @@
 
     <!-- for update set -->
     <sql id="updates">
-        user_name=#{userName}, nick_name=#{nickName}, mobile=#{mobile}, `password`=#{password}, salt=#{salt}, status=#{status}, email=#{email}, delete_flag=#{deleteFlag}, modify_date=NOW()
+        user_name=#{userName}, nick_name=#{nickName}, mobile=#{mobile}, `password`=#{password}, salt=#{salt}, status=#{status}, email=#{email}, delete_flag=#{deleteFlag}, update_date=NOW()
     </sql>
 
     <!-- 根据名称查询 -->
