@@ -11,4 +11,6 @@ import com.rd.www.muscle.triceps.service.BaseService;
  */
 public interface SysUserService extends BaseService<SysUser>{
 
+
+
 }

@@ -49,6 +49,7 @@
         sys_user t
         WHERE 1=1
         AND t.user_name=#{userName}
+
     </select>
 
     <!-- 根据ID查询-->

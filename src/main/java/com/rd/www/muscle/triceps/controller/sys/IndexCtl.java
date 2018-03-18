@@ -76,6 +76,31 @@ public class IndexCtl {
 
 
     /**
+     * 登陆用户名称
+     *
+     * @return 用户名称
+     */
+    @RequestMapping("/loginUserName")
+    public Result getLoginUser() {
+
+        try {
+            String loginUserName = ShiroUtil.getLoginUserName();
+
+            if (StringUtils.isEmpty(loginUserName)) {
+                return Result.error(IndexErrorCode.SYS_INDEX_CTL_GET_USERNAME_FROM_SHIRO_ERROR_CODE, IndexErrorCode.SYS_INDEX_CTL_GET_USERNAME_FROM_SHIRO_ERROR_MESSAGE);
+            }
+
+            return Result.success().put("loginUserName", loginUserName);
+
+        } catch (RuntimeException e) {
+            return Result.error(IndexErrorCode.SYS_INDEX_CTL_GET_MENUS_ERROR_CODE, IndexErrorCode.SYS_INDEX_CTL_GET_MENUS_ERROR_MESSAGE);
+        } catch (Exception e) {
+            return Result.error(IndexErrorCode.SYS_INDEX_CTL_GET_MENUS_ROOT_ERROR_CODE, IndexErrorCode.SYS_INDEX_CTL_GET_MENUS_ROOT_ERROR_MESSAGE);
+        }
+    }
+
+
+    /**
      * 查询用户授权菜单
      *
      * @return 用户授权菜单列表
@@ -99,7 +124,7 @@ public class IndexCtl {
 
             return Result.success().put("page", result);
 
-        } catch (ApplicationException e) {
+        } catch (RuntimeException e) {
             return Result.error(IndexErrorCode.SYS_INDEX_CTL_GET_MENUS_ERROR_CODE, IndexErrorCode.SYS_INDEX_CTL_GET_MENUS_ERROR_MESSAGE);
         } catch (Exception e) {
             return Result.error(IndexErrorCode.SYS_INDEX_CTL_GET_MENUS_ROOT_ERROR_CODE, IndexErrorCode.SYS_INDEX_CTL_GET_MENUS_ROOT_ERROR_MESSAGE);

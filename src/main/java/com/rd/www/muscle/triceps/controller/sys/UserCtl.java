@@ -8,6 +8,9 @@ import com.rd.www.muscle.triceps.model.database.SysUser;
 import com.rd.www.muscle.triceps.model.exception.ApplicationException;
 import com.rd.www.muscle.triceps.service.sys.SysUserService;
 import com.rd.www.muscle.triceps.util.errorcode.UserErrorCode;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,12 +79,21 @@ public class UserCtl {
      * @param sysUser 请求数据对象
      * @return 结果对象
      */
+    @RequiresPermissions("sys:user:insert")
     @RequestMapping("/insert")
     public Result insert(@RequestBody SysUser sysUser) {
 
         try {
             // 校验参数
             // TODO: 2018/3/14
+
+            // 获取密码盐
+            String salt = new SecureRandomNumberGenerator().nextBytes(3).toHex();
+            sysUser.setSalt(salt);
+
+            // 获取密码
+            String pwd = new SimpleHash("md5", sysUser.getPassword(), sysUser.getUserName() + salt, 3).toHex();
+            sysUser.setPassword(pwd);
 
             // 执行入库操作
             sysUserService.insert(sysUser);
