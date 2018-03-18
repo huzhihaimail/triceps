@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login-page</title>
+</head>
+<body>
+<div id="app">
+    用户名1<input type="text" v-model="userName">
+    密码1<input type="text" v-model="pwd">
+    <span>{{message}}</span>
+    <button @click="login">登陆</button>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script src="../../vue/common/common-application.js"></script>
+<script src="../../vue/sys/login.js"></script>
+</html>
