@@ -2,58 +2,37 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 配置dao接口路径-->
-<mapper namespace="com.rd.www.muscle.triceps.dao.SysUserDao">
+<mapper namespace="com.rd.www.muscle.triceps.dao.SysUserRoleDao">
 
     <!-- type配置model层实体类名-->
-    <resultMap id="SysUserMap" type="SysUser">
-
+    <resultMap id="SysUserRoleMap" type="SysUserRole">
         <!-- 配置实体和数据库列的对应关系，property：实体属性名；column：数据库表列名；-->
-        <result property="id" column="id"></result>
-        <result property="userName" column="user_name"></result>
-        <result property="nickName" column="nick_name"></result>
-        <result property="password" column="password"></result>
-        <result property="salt" column="salt"></result>
-        <result property="email" column="email"></result>
-        <result property="mobile" column="mobile"></result>
-        <result property="status" column="status"></result>
-        <result property="deleteFlag" column="delete_flag"></result>
-        <result property="createDate" column="create_date"></result>
-        <result property="updateDate" column="update_date"></result>
+        <result property="userId" column="user_id"></result>
+        <result property="roleId" column="role_id"></result>
     </resultMap>
 
     <!-- 配置表名 -->
     <sql id="tableName">
-        sys_user
+        sys_user_role
     </sql>
 
     <!-- for insert columns -->
     <sql id="columns">
-        id, user_name, nick_name, mobile, password, salt, status, email, create_date, update_date, delete_flag
+        user_id, role_id
     </sql>
 
     <!-- for insert value -->
     <sql id="values">
-        #{id}, #{userName}, #{nickName}, #{mobile}, #{password}, #{salt}, 1, #{email}, now(), now(), 0
+        #{userID}, #{roleId}
     </sql>
 
     <!-- for update set -->
     <sql id="updates">
-        user_name=#{userName}, nick_name=#{nickName}, mobile=#{mobile}, `password`=#{password}, salt=#{salt}, status=#{status}, email=#{email}, delete_flag=#{deleteFlag}, update_date=NOW()
+        user_id=#{userId}, role_id=#{roleId}
     </sql>
 
-    <!-- 根据名称查询 -->
-    <select id="queryByName" resultMap="SysUserMap" parameterType="String">
-        SELECT
-        <include refid="columns"/>
-        FROM
-        sys_user t
-        WHERE 1=1
-        AND t.user_name=#{userName}
-
-    </select>
-
     <!-- 根据ID查询-->
-    <select id="queryById" resultMap="SysUserMap" parameterType="String">
+    <select id="queryById" resultMap="SysUserRoleMap" parameterType="String">
         SELECT
         <include refid="columns"/>
         FROM
@@ -74,7 +53,7 @@
     </delete>
 
     <!-- 新建  -->
-    <insert id="insert" useGeneratedKeys="true" parameterType="SysUser" keyProperty="id">
+    <insert id="insert" parameterType="SysUserRole" keyProperty="id">
         INSERT INTO sys_user
         (<include refid="columns"/>)
         VALUES
@@ -82,7 +61,7 @@
     </insert>
 
     <!-- 修改 -->
-    <update id="update" parameterType="SysUser">
+    <update id="update" parameterType="SysUserRole">
         UPDATE
         <include refid="tableName"/>
         SET
@@ -91,7 +70,7 @@
     </update>
 
     <!-- 根据条件查询 -->
-    <select id="queryList" resultMap="SysUserMap" parameterType="map">
+    <select id="queryList" resultMap="SysUserRoleMap" parameterType="map">
         SELECT
         t.id,
         t.user_name,

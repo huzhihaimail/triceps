@@ -92,15 +92,6 @@ public class UserCtl {
         try {
             // 校验参数
             // TODO: 2018/3/14
-
-            // 获取密码盐
-            String salt = new SecureRandomNumberGenerator().nextBytes(3).toHex();
-            sysUser.setSalt(salt);
-
-            // 获取密码
-            String pwd = new SimpleHash("md5", sysUser.getPassword(), sysUser.getUserName() + salt, 3).toHex();
-            sysUser.setPassword(pwd);
-
             // 执行入库操作
             sysUserService.saveUser(sysUser);
         } catch (ApplicationException e) {

@@ -17,6 +17,6 @@ public interface SysUserService extends BaseService<SysUser> {
      * @param sysUser 用户信息（包含角色信息）
      * @return
      */
-    Integer saveUser(SysUser sysUser);
+    void saveUser(SysUser sysUser);
 
 }
