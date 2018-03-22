@@ -9,8 +9,14 @@ import com.rd.www.muscle.triceps.service.BaseService;
  *
  * @author 胡志海
  */
-public interface SysUserService extends BaseService<SysUser>{
+public interface SysUserService extends BaseService<SysUser> {
 
-
+    /**
+     * 保存用户和角色信息到数据库
+     *
+     * @param sysUser 用户信息（包含角色信息）
+     * @return
+     */
+    Integer saveUser(SysUser sysUser);
 
 }

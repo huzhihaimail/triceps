@@ -37,4 +37,16 @@ public interface UserErrorCode {
      */
     String SYS_USER_UPDATE_ERROR_CODE = SYS_USER + "4";
     String SYS_USER_UPDATE_ERROR_MESSAGE = "更新用户出现根异常";
+
+    /**
+     * 加载角色系统异常
+     */
+    String SYS_USER_LOAD_ROLES_APP_ERROR_CODE = SYS_USER + "5";
+    String SYS_USER_LOAD_ROLES_APP_ERROR_MESSAGE = "查询角色出现系统异常";
+
+    /**
+     * 加载角色异常
+     */
+    String SYS_USER_LOAD_ROLES_ERROR_CODE = SYS_USER + "6";
+    String SYS_USER_LOAD_ROLES_ERROR_MESSAGE = "查询角色出现根异常";
 }

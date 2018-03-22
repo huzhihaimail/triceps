@@ -47,11 +47,6 @@ BootStrapTable.prototype.createBootStrapTable = function (columns, url, queryOpt
     this.initBootstrapTable(columns, url, queryOpt);
 }
 
-BootStrapTable.prototype.demo = function () {
-    console.log("我是覆写前的demo函数");
-}
-
-
 /**
  * 加载表格
  * @param defineQueryParams 用户自定义查询参数（传递到后台）

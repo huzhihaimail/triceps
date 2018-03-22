@@ -57,13 +57,12 @@ public class SysUser extends BaseModel {
     /**
      * 角色列表
      */
-    private List<String> roleList;
+    private List<String> userRoles;
 
     /**
      * 记住我
      */
     private String isRememberMe;
-
 
     public String getUserName() {
         return userName;
@@ -137,12 +136,12 @@ public class SysUser extends BaseModel {
         this.status = status;
     }
 
-    public List<String> getRoleList() {
-        return roleList;
+    public List<String> getUserRoles() {
+        return userRoles;
     }
 
-    public void setRoleList(List<String> roleList) {
-        this.roleList = roleList;
+    public void setUserRoles(List<String> userRoles) {
+        this.userRoles = userRoles;
     }
 
     public String getIsRememberMe() {
@@ -151,22 +150,5 @@ public class SysUser extends BaseModel {
 
     public void setIsRememberMe(String isRememberMe) {
         this.isRememberMe = isRememberMe;
-    }
-
-    @Override
-    public String toString() {
-        return "SysUser{" +
-                ", userName='" + userName + '\'' +
-                ", nickName='" + nickName + '\'' +
-                ", password='" + password + '\'' +
-                ", newPassword='" + newPassword + '\'' +
-                ", salt='" + salt + '\'' +
-                ", userVerifyCode='" + userVerifyCode + '\'' +
-                ", email='" + email + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", status=" + status +
-                ", roleList=" + roleList +
-                ", isRememberMe='" + isRememberMe + '\'' +
-                '}';
     }
 }

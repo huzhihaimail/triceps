@@ -4,9 +4,12 @@ package com.rd.www.muscle.triceps.controller.sys;
 import com.github.pagehelper.PageInfo;
 import com.rd.www.muscle.triceps.model.common.Query;
 import com.rd.www.muscle.triceps.model.common.Result;
+import com.rd.www.muscle.triceps.model.database.SysRole;
 import com.rd.www.muscle.triceps.model.database.SysUser;
 import com.rd.www.muscle.triceps.model.exception.ApplicationException;
+import com.rd.www.muscle.triceps.service.sys.SysRoleService;
 import com.rd.www.muscle.triceps.service.sys.SysUserService;
+import com.rd.www.muscle.triceps.util.ShiroUtil;
 import com.rd.www.muscle.triceps.util.errorcode.UserErrorCode;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
@@ -21,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,6 +41,9 @@ public class UserCtl {
 
     @Autowired
     private SysUserService sysUserService;
+
+    @Autowired
+    private SysRoleService sysRoleService;
 
     /**
      * 查询用户列表
@@ -79,7 +86,6 @@ public class UserCtl {
      * @param sysUser 请求数据对象
      * @return 结果对象
      */
-    @RequiresPermissions("sys:user:insert")
     @RequestMapping("/insert")
     public Result insert(@RequestBody SysUser sysUser) {
 
@@ -96,7 +102,7 @@ public class UserCtl {
             sysUser.setPassword(pwd);
 
             // 执行入库操作
-            sysUserService.insert(sysUser);
+            sysUserService.saveUser(sysUser);
         } catch (ApplicationException e) {
             return Result.error(UserErrorCode.SYS_USER_SAVE_APP_ERROR_CODE, UserErrorCode.SYS_USER_SAVE_APP_ERROR_MESSAGE);
         } catch (Exception e) {
@@ -149,6 +155,30 @@ public class UserCtl {
         }
 
         return Result.success();
+    }
+
+    /**
+     * 加载角色列表
+     *
+     * @return
+     */
+    @RequestMapping("/loadRoles")
+    public Result loadRoles() {
+
+        try {
+            // 校验参数
+            // TODO: 2018/3/14
+
+            // 获取登用户名
+            String loginUserName = ShiroUtil.getLoginUserName();
+
+            List<SysRole> rolesLst = sysRoleService.loadRoles(loginUserName);
+            return Result.success().put("page", rolesLst);
+        } catch (RuntimeException e) {
+            return Result.error(UserErrorCode.SYS_USER_LOAD_ROLES_APP_ERROR_CODE, UserErrorCode.SYS_USER_LOAD_ROLES_APP_ERROR_MESSAGE);
+        } catch (Exception e) {
+            return Result.error(UserErrorCode.SYS_USER_LOAD_ROLES_ERROR_CODE, UserErrorCode.SYS_USER_LOAD_ROLES_ERROR_MESSAGE);
+        }
     }
 
 }

@@ -33,7 +33,7 @@
 
     <!-- for insert value -->
     <sql id="values">
-        #{id}, #{userName}, #{nickName}, #{mobile}, #{password}, #{salt}, #{status}, #{email}, now(), now(), 0
+        #{id}, #{userName}, #{nickName}, #{mobile}, #{password}, #{salt}, 1, #{email}, now(), now(), 0
     </sql>
 
     <!-- for update set -->
