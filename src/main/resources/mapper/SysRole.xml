@@ -36,19 +36,21 @@
     </sql>
 
     <!-- 根据用户名称查询该用户拥有的角色-->
-    <select id="loadRoles" resultMap="SysRoleMap" parameterType="String">
+    <select id="loadRoles" resultMap="SysRoleMap" parameterType="map">
         SELECT
-            t.id,
-            t. NAME,
-            t.name_cn
+        t.id,
+        t. NAME,
+        t.name_cn
         FROM
-            sys_role t
+        sys_role t
         LEFT JOIN sys_user_role ur ON t.id = ur.role_id
         LEFT JOIN sys_user u ON ur.user_id = u.id
         WHERE 1 = 1
         AND t.`status` = 0
         AND t.delete_flag = 0
-        AND u.user_name = #{userName}
+        <if test="userName!='admin'"><!-- 超级管理员的特权处理-->
+            AND u.user_name = #{userName}
+        </if>
     </select>
 
     <!-- 查询加载表格 -->

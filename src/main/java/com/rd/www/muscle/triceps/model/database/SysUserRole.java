@@ -6,10 +6,16 @@ package com.rd.www.muscle.triceps.model.database;
  *
  * @author 胡志海
  */
-public class SysUserRole {
+public class SysUserRole extends BaseModel {
 
+    /**
+     * 用户ID
+     */
     private String userId;
 
+    /**
+     * 角色ID
+     */
     private String roleId;
 
     public String getUserId() {

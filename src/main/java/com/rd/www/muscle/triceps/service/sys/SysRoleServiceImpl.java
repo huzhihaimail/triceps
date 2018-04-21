@@ -7,6 +7,7 @@ import com.rd.www.muscle.triceps.service.BaseServiceImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <类功能简述> 角色业务层实现类
@@ -17,7 +18,7 @@ import java.util.List;
 public class SysRoleServiceImpl extends BaseServiceImpl<SysRoleDao, SysRole> implements SysRoleService {
 
     @Override
-    public List<SysRole> loadRoles(String userName) {
+    public List<SysRole> loadRoles(Map<String, Object> userName) {
         return dao.loadRoles(userName);
     }
 }

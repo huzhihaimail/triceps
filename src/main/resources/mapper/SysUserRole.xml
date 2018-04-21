@@ -23,7 +23,12 @@
 
     <!-- for insert value -->
     <sql id="values">
-        #{userID}, #{roleId}
+        #{userId}, #{roleId}
+    </sql>
+
+    <!-- for batchInsert value -->
+    <sql id="batchInsertValues">
+        #{item.userId}, #{item.roleId}
     </sql>
 
     <!-- for update set -->
@@ -42,7 +47,7 @@
     </select>
 
     <!-- 批量删除-->
-    <delete id="deleteByIds" parameterType="java.util.List">
+    <delete id="deleteByIds" parameterType="List">
         DELETE FROM
         <include refid="tableName"/>
         WHERE 1=1
@@ -52,12 +57,15 @@
         </foreach>
     </delete>
 
-    <!-- 新建  -->
-    <insert id="insert" parameterType="SysUserRole" keyProperty="id">
-        INSERT INTO sys_user
+    <!-- 批量新建  -->
+    <insert id="batchInsert">
+        insert into
+        <include refid="tableName"/>
         (<include refid="columns"/>)
-        VALUES
-        (<include refid="values"/>)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (<include refid="batchInsertValues"/>)
+        </foreach>
     </insert>
 
     <!-- 修改 -->
@@ -73,31 +81,16 @@
     <select id="queryList" resultMap="SysUserRoleMap" parameterType="map">
         SELECT
         t.id,
-        t.user_name,
-        t.nick_name,
-        t.mobile,
-        t.password,
-        t.salt,
-        t.status,
-        t.email,
-        t.create_date,
-        t.update_date,
-        t.delete_flag
+        t.user_id,
+        u.user_name,
+        t.role_id,
+        r.name,
         FROM
-        sys_user t
+        sys_user_role t
+        LEFT JOIN sys_user u ON u.id = t.user_id
+        LEFT JOIN sys_ROLE r ON r.id = t.role_id
         WHERE 1=1
-        <if test="keyword!=null and keyword!=''">
-            AND t.user_name LIKE CONCAT('%',#{keyword},'%')
-            OR t.nick_name LIKE CONCAT('%',#{keyword},'%')
-            OR t.mobile LIKE CONCAT('%',#{keyword},'%')
-            OR t.email LIKE CONCAT('%',#{keyword},'%')
-        </if>
-        <if test="sortName!=null and sorName!='' and sortOrder !=null and sortOrder!=''">
-            ORDER BY #{sortName} #{sortOrder}
-        </if>
-
     </select>
-
 
 </mapper>
 

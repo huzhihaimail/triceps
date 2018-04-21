@@ -97,6 +97,7 @@ public class UserCtl {
         } catch (ApplicationException e) {
             return Result.error(UserErrorCode.SYS_USER_SAVE_APP_ERROR_CODE, UserErrorCode.SYS_USER_SAVE_APP_ERROR_MESSAGE);
         } catch (Exception e) {
+            e.printStackTrace();
             return Result.error(UserErrorCode.SYS_USER_SAVE_ERROR_CODE, UserErrorCode.SYS_USER_SAVE_ERROR_MESSAGE);
         }
 
@@ -163,7 +164,13 @@ public class UserCtl {
             // 获取登用户名
             String loginUserName = ShiroUtil.getLoginUserName();
 
-            List<SysRole> rolesLst = sysRoleService.loadRoles(loginUserName);
+            // 设置查询参数
+            Map<String, Object> params = new HashMap<>();
+            params.put("userName", loginUserName);
+
+            Query query = new Query(params);
+
+            List<SysRole> rolesLst = sysRoleService.loadRoles(query);
             return Result.success().put("page", rolesLst);
         } catch (RuntimeException e) {
             return Result.error(UserErrorCode.SYS_USER_LOAD_ROLES_APP_ERROR_CODE, UserErrorCode.SYS_USER_LOAD_ROLES_APP_ERROR_MESSAGE);
