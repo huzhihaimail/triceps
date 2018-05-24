@@ -4,7 +4,7 @@
 <!-- 【命名规范说明 】 1. 文件名采用 "表名.xml" 的方式； 2. 每个SQL上需要编写该条SQL的注释； 3. SQL关键字采用全大写的方式； 4. 如果允许，请尽量保持SQL的ID和对应的业务方法名保持一致； 5. 查询SQL如果需要使用自动分页，则其SQL的ID必须使用ByPage结尾； 
 	6. 可以使用MyBatis流程控制语句来实现SQL的重用； 6. 注意SQL排版； -->
 
-<mapper namespace="com.rd.www.muscle.triceps.dao.SysQuartzJobDao">
+<mapper namespace="cn.com.njdhy.muscle.triceps.dao.SysQuartzJobDao">
 
     <!-- 可根据自己的需求，是否要使用 -->
     <resultMap id="QuartzJobMap" type="SysQuartzJob">

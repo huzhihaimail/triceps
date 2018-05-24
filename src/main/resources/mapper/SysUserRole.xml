@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 配置dao接口路径-->
-<mapper namespace="com.rd.www.muscle.triceps.dao.SysUserRoleDao">
+<mapper namespace="cn.com.njdhy.muscle.triceps.dao.SysUserRoleDao">
 
     <!-- type配置model层实体类名-->
     <resultMap id="SysUserRoleMap" type="SysUserRole">
