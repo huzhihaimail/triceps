@@ -46,7 +46,6 @@
         LEFT JOIN sys_user_role ur ON t.id = ur.role_id
         LEFT JOIN sys_user u ON ur.user_id = u.id
         WHERE 1 = 1
-        AND t.`status` = 0
         AND t.delete_flag = 0
         <if test="userName!='admin'"><!-- 超级管理员的特权处理-->
             AND u.user_name = #{userName}
@@ -66,7 +65,6 @@
         FROM
         sys_role t
         WHERE 1=1
-        AND t.status=0
         AND t.delete_flag = 0
         <if test="keyword!=null and keyword!=''">
             AND t.name LIKE CONCAT('%',#{keyword},'%')

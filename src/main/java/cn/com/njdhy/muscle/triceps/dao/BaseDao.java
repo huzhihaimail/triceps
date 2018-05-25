@@ -10,7 +10,7 @@ import java.util.Map;
  * @author 胡志海
  */
 public interface BaseDao<T> {
-
+    
     /**
      * 函数功能描述：插入操作示例
      *

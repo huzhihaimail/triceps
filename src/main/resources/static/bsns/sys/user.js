@@ -1,60 +1,74 @@
 /**
  * 表格显示列
  */
-function initColumns() {
-
-    var columns = [{checkbox: true, width: "2%"},
-        {
-            title: "序号",
-            field: "id",
-            width: "2%",
-            align: "center",
-            formatter: function (value, row, index) { // 设置列序号值，index从0开始
-                return index + 1;
-            }
+var showColumns = [
+    {
+        checkbox: true, width: "2%"
+    }
+    , {
+        title: "序号",
+        field: "id",
+        width: "3%",
+        align: "center",
+        formatter: function (value, row, index) { // 设置列序号值，index从0开始
+            return index + 1;
         }
-        , {
-            field: "userName",
-            title: "用户名称",
-            width: "20%",
-            sortable: true,
-            sortName: "user_name" // sortName的值，需配置和数据库保持一致
+    }
+    , {
+        field: "userName",
+        title: "用户名称",
+        width: "10%",
+        sortable: true,
+        sortName: "user_name" // sortName的值，需配置和数据库保持一致
+    }
+    , {
+        field: "nickName",
+        title: "昵称",
+        width: "10%",
+        sortable: true,
+        sortName: "nickName"
+    }
+    , {
+        field: "mobile",
+        title: "手机号",
+        width: "20%",
+        sortable: true,
+        sortName: "mobile"
+    }
+    , {
+        field: "email",
+        title: "邮箱",
+        width: "15%",
+        sortable: true,
+        sortName: "email"
+    }
+    , {
+        field: "createDate",
+        title: "创建时间",
+        width: "20%",
+        formatter: function (value, row, index) {
+            return new moment(value).format('YYYY-MM-DD HH:mm:ss');
         }
-        , {
-            field: "nickName",
-            title: "昵称",
-            width: "20%",
-            sortable: true,
-            sortName: "nickName"
+    }
+    , {
+        field: "updateDate",
+        title: "最近修改时间",
+        width: "20%",
+        formatter: function (value, row, index) {
+            return new moment(value).format('YYYY-MM-DD HH:mm:ss');
         }
-        , {
-            field: "mobile",
-            title: "手机号",
-            width: "20%",
-            sortable: true,
-            sortName: "mobile"
+    }
+    /*, {
+        field: "operate",
+        title: "操作",
+        width: "15%",
+        formatter: function () {
+            return '<a class="btn btn-success btn-sm" @click="save"><i class="fa fa-floppy-o"></i></a>\n' +
+                '<a class="btn btn-warning btn-sm" @click="update"><i class="fa fa-pencil-square-o"></i></a>\n' +
+                '<a class="btn btn-danger btn-sm" @click="del"><i class="fa fa-trash"></i></a>';
         }
-        , {
-            field: "email",
-            title: "邮箱",
-            width: "40%",
-            sortable: true,
-            sortName: "email"
-        }
-        /*, {
-            field: "operate",
-            title: "操作",
-            width: "15%",
-            formatter: function () {
-                return '<a class="btn btn-success btn-sm" @click="save"><i class="fa fa-floppy-o"></i></a>\n' +
-                    '<a class="btn btn-warning btn-sm" @click="update"><i class="fa fa-pencil-square-o"></i></a>\n' +
-                    '<a class="btn btn-danger btn-sm" @click="del"><i class="fa fa-trash"></i></a>';
-            }
-        }*/
-    ];
-
-    return columns;
-}
+    }*/
+];
 
 
 // 通用表格对象
@@ -68,7 +82,7 @@ var vm = new Vue({
 
         /* 定义bootstrap-table表格参数 */
         queryOption: {}
-        , columns: initColumns()
+        , columns: showColumns
 
         /* 定义页面操作参数 */
         , show: true// 切换页面中的查询和新建（编辑）页面
@@ -243,7 +257,7 @@ var vm = new Vue({
             vm.queryOption = queryOpt;
 
             // 刷新表格数据
-            bsTable.createBootStrapTable(initColumns(), APP_NAME + "/sys/user/list?rnd=" + Math.random(), vm.queryOption);
+            bsTable.createBootStrapTable(showColumns, APP_NAME + "/sys/user/list?rnd=" + Math.random(), vm.queryOption);
         }
 
         // 加载角色列表
