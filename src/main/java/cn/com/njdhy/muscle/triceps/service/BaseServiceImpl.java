@@ -77,6 +77,7 @@ public class BaseServiceImpl<DAO extends BaseDao<T>, T> implements BaseService<T
     public PageInfo<T> queryList(Map<String, Object> queryParams, Integer pageNum, Integer pageSize) {
         // 开始分页(pageNum：表示第几页；pageSize表示每页查询多少条)
         PageHelper.startPage(pageNum, pageSize);
+        PageHelper.orderBy("id");
         return new PageInfo<T>(this.dao.queryList(queryParams));
     }
 

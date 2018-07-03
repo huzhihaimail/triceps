@@ -41,23 +41,22 @@
     <select id="loadMenus" resultMap="SysMenuMap" parameterType="String">
 	SELECT  DISTINCT
 			m.id,
-			m.`name`,
+			m.name,
 			m.icon,
 			m.parent_id,
 			m.url,
 			m.order_num
 		FROM
 			sys_menu m
-		LEFT JOIN sys_privilege p ON m.id = p.menu_id
 		WHERE
 			1 = 1
 		AND m.delete_flag = 0
-		AND p.id IN (
+		AND m.id IN (
 			SELECT DISTINCT
-				rp.privilege_id
+				rm.menu_id
 			FROM
 				sys_role r
-			LEFT JOIN sys_role_privilege rp ON r.id = rp.role_id
+			LEFT JOIN sys_role_menu rm ON r.id = rm.role_id
 			WHERE
 				r.delete_flag = 0
 			AND r.id IN (
@@ -71,6 +70,8 @@
 				AND t.user_name = #{userName}
 			)
 		)
+		order by m.order_num
+
     </select>
 
 </mapper>

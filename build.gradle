@@ -83,8 +83,8 @@ dependencies {
     runtime("org.springframework.boot:spring-boot-devtools")
 
     // database mysql connect
-    //runtime("mysql:mysql-connector-java:${mysql_connector_version}")
-    compile 'com.microsoft.sqlserver:mssql-jdbc:6.4.0.jre8'
+    runtime("mysql:mysql-connector-java:${mysql_connector_version}")
+    //compile 'com.microsoft.sqlserver:mssql-jdbc:6.4.0.jre8'
 
     // test
     testCompile(group: 'junit', name: 'junit', version: '4.12')
